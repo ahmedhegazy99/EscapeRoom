@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WardrobeLock_02 : MonoBehaviour
 {
-    private string curPassword = "12345";
+    private string curPassword = "FRANCE";
     private string input;
     private string tempInput;
     private bool onTrigger;
@@ -48,47 +48,55 @@ public class WardrobeLock_02 : MonoBehaviour
         }
 
         if(keyPadScreen){
-            GUI.Box(new Rect(0, 0, 260, 255), "");
+            GUI.Box(new Rect(0, 0, 260, 255), "-Invented tin cans, the hairdryer, and the hot air balloon.\n -World’s most popular tourist destination.\n -First country in the world to ban supermarkets from throwing away food.\n -Has more Nobel Prize winners in Literature than any other country.");
             GUI.Box(new Rect(5, 5, 250, 25), input);
 
-            if(GUI.Button(new Rect(5, 35, 80, 50), "1")){
-                tempInput = "1";
+            if(GUI.Button(new Rect(5, 35, 80, 50), "R")){
+                tempInput = "R";
                 input += tempInput;
             }
-            if(GUI.Button(new Rect(90, 35, 80, 50), "2")){
-                tempInput = "2";
+            if(GUI.Button(new Rect(90, 35, 80, 50), "J")){
+                tempInput = "J";
                 input += tempInput;
             }
-            if(GUI.Button(new Rect(175, 35, 80, 50), "3")){
-                tempInput = "3";
+            if(GUI.Button(new Rect(175, 35, 80, 50), "E")){
+                tempInput = "E";
                 input += tempInput;
             }
-            if(GUI.Button(new Rect(5, 90, 80, 50), "4")){
-                tempInput = "4";
+            if(GUI.Button(new Rect(5, 90, 80, 50), "M")){
+                tempInput = "M";
                 input += tempInput;
             }
-            if(GUI.Button(new Rect(90, 90, 80, 50), "5")){
-                tempInput = "5";
+            if(GUI.Button(new Rect(90, 90, 80, 50), "A")){
+                tempInput = "A";
                 input += tempInput;
             }
-            if(GUI.Button(new Rect(175, 90, 80, 50), "6")){
-                tempInput = "6";
+            if(GUI.Button(new Rect(175, 90, 80, 50), "O")){
+                tempInput = "O";
                 input += tempInput;
             }
-            if(GUI.Button(new Rect(5, 145, 80, 50), "7")){
-                tempInput = "7";
+            if(GUI.Button(new Rect(5, 145, 80, 50), "F")){
+                tempInput = "F";
                 input += tempInput;
             }
-            if(GUI.Button(new Rect(90, 145, 80, 50), "8")){
-                tempInput = "8";
+            if(GUI.Button(new Rect(90, 145, 80, 50), "K")){
+                tempInput = "K";
                 input += tempInput;
             }
-            if(GUI.Button(new Rect(175, 145, 80, 50), "9")){
-                tempInput = "9";
+            if(GUI.Button(new Rect(175, 145, 80, 50), "B")){
+                tempInput = "B";
                 input += tempInput;
             }
-            if(GUI.Button(new Rect(90, 200, 80, 50), "0")){
-                tempInput = "0";
+            if(GUI.Button(new Rect(5, 200, 80, 50), "C")){
+                tempInput = "C";
+                input += tempInput;
+            }
+            if(GUI.Button(new Rect(90, 200, 80, 50), "S")){
+                tempInput = "S";
+                input += tempInput;
+            }
+            if(GUI.Button(new Rect(175, 200, 80, 50), "N")){
+                tempInput = "N";
                 input += tempInput;
             }
 
