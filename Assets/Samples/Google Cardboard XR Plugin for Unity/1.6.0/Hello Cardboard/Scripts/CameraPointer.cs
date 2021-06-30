@@ -26,6 +26,8 @@ public class CameraPointer : MonoBehaviour
 {
     private const float _maxDistance = 10;
     private GameObject _gazedAtObject = null;
+    public Transform playerBody;
+
 
     /// <summary>
     /// Update is called once per frame.
@@ -45,6 +47,12 @@ public class CameraPointer : MonoBehaviour
                 _gazedAtObject = hit.transform.gameObject;
                 _gazedAtObject.SendMessage("OnPointerEnter");
             }
+
+            if(hit.transform.tag == "Teleporter")
+            {
+                playerBody.transform.position = hit.transform.position;
+            }
+            
         }
         else
         {
