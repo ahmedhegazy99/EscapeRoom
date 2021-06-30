@@ -8,7 +8,7 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 3
+  defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -150,7 +150,6 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.KVR.EscapeRoom
     Standalone: com.DefaultCompany.EscapeRoom
-    iPhone: com.KVR.EscapeRoom
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -438,9 +437,8 @@ PlayerSettings:
   actionOnDotNetUnhandledException: 1
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
-  enableCrashReportAPI: 1
-  cameraUsageDescription: Cardboard SDK requires camera permission to read the QR
-    code (required to get the encoded device parameters).
+  enableCrashReportAPI: 0
+  cameraUsageDescription: 
   locationUsageDescription: 
   microphoneUsageDescription: 
   switchNMETAOverride: 
