@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ModernOffice_Interior_SampleLayout.unity
+    path: Assets/Scenes/MainScene.unity
     guid: 2194fe559202da244a6cc0ad8cbc636d
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: b7f45a0f52bf7dc16afe576405eea765, type: 2}

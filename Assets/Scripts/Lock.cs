@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using TMPro;
 using System;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEditor.Events;
+//using UnityEditor.Events;
 
 public class Lock : MonoBehaviour
 {
     private bool onTrigger, doorOpen, keyPadScreen;
+    [SerializeField] private bool boardVisible = false;
     [SerializeField] private Animator leftDoor = null, rightDoor = null;
     //btnObject is the object used generatw buttons of keyPad
-    [SerializeField] private GameObject btnObject, keyPad = null;
+    [SerializeField] private GameObject btnObject, board, keyPad = null;
     [SerializeField] private int width = 3, height = 4;
     [SerializeField] private string currentPassword = "egypt";
     [SerializeField] private char[] buttonsChar = {'g', 'k', 'p', 'o', 'e', 's', 'y', 'a', 'n', 'm', 't', 's'};
@@ -39,12 +40,11 @@ public class Lock : MonoBehaviour
     void Update() {
 
         if(onTrigger){
-            
-                keyPadScreen = true;
-                //onTrigger = false;
+            Debug.Log("On Trigger");
+            keyPadScreen = true;
+            //onTrigger = false;
 
-                keyPad.SetActive(keyPadScreen);
-                //builder();
+            keyPad.SetActive(keyPadScreen);
         }
 
         if(input.text == currentPassword){
@@ -59,17 +59,18 @@ public class Lock : MonoBehaviour
             gameObject.SetActive(false);
             keyPad.SetActive(false);
             Debug.Log("Door Opend");
+
+            if(board != null)board.SetActive(true);
         }
     }
 
     void Start()
     {
-        Debug.Log("1");
         keyPad.SetActive(false);
+        if(board != null)board.SetActive(boardVisible);
         mText = btnObject.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
         input = keyPad.transform.GetChild(0).GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshPro>();
         input.SetText("");
-        Debug.Log("2");
         btnObject.transform.position = transform.position;
         sy = (float)btnObject.transform.localScale.y;
         sz = (float)btnObject.transform.localScale.z;
@@ -78,10 +79,9 @@ public class Lock : MonoBehaviour
         py = (float)keyPad.transform.position.y;
         ksy = (float)keyPad.transform.localScale.y;
         int counter = 0;
-        Debug.Log("b4");
+
         for (int y=height; y>=0; y--)
        {
-           Debug.Log("in y");
            if(y==0){
                 mText.SetText("Del");
                 mText.fontSize = 4;
@@ -89,11 +89,11 @@ public class Lock : MonoBehaviour
                 mButton.name = "DelKey";
                 mButton.transform.SetParent (keyPad.transform, true);
                 btn = mButton.GetComponent <Button> ();
-                UnityAction<GameObject> action = new UnityAction<GameObject>(TaskOnClick);
-                UnityEventTools.AddObjectPersistentListener<GameObject>(btn.onClick, action, mButton);
+                //UnityAction<GameObject> action = new UnityAction<GameObject>(TaskOnClick);
+                //UnityEventTools.AddObjectPersistentListener<GameObject>(btn.onClick, action, mButton);
+                //btn.onClick.AddListener(() => TaskOnClick());
            }else{
                 for (int x=0; x<width; ++x){
-                    Debug.Log("in x");
                     temp = Char.ToString(buttonsChar[counter]);
                     mText.SetText(Char.ToString(buttonsChar[counter++]));
                     //mButton = Instantiate(btnObject, new Vector3(px,(float)(y*(sy+(0.2*sy))),pz+(float)(x*(sz+0.1))), Quaternion.identity);
@@ -101,8 +101,9 @@ public class Lock : MonoBehaviour
                     mButton.name = temp;
                     mButton.transform.SetParent (keyPad.transform, true);
                     btn = mButton.GetComponent <Button> ();
-                    UnityAction<GameObject> action = new UnityAction<GameObject>(TaskOnClick);
-                    UnityEventTools.AddObjectPersistentListener<GameObject>(btn.onClick, action, mButton);
+                    //UnityAction<GameObject> action = new UnityAction<GameObject>(TaskOnClick);
+                    //UnityEventTools.AddObjectPersistentListener<GameObject>(btn.onClick, action, mButton);
+                    //btn.onClick.AddListener(() => TaskOnClick());
                 }
            }
        }       
@@ -120,5 +121,4 @@ public class Lock : MonoBehaviour
             input.SetText(input.text += mText.text);
         }
     }
-
 }
