@@ -77,6 +77,8 @@ namespace SlimUI.ModernMenu
 		public GameObject loadingMenu;
 		public Slider loadBar;
 		public TMP_Text finishedLoadingText;
+		public float timeLeft = 10.0f;
+
 
 		void Start()
 		{
@@ -235,7 +237,6 @@ namespace SlimUI.ModernMenu
 				Application.Quit();
 			#endif
 		}
-
 		IEnumerator LoadAsynchronously(string sceneName) // scene name is just the name of the current scene being loaded
 		{ 
 			AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
@@ -247,13 +248,16 @@ namespace SlimUI.ModernMenu
 			{
 				float progress = Mathf.Clamp01(operation.progress / .9f);
 				loadBar.value = progress;
-
+				timeLeft -= Time.deltaTime;
 				if(operation.progress >= 0.9f)
 				{
 					finishedLoadingText.gameObject.SetActive(true);
 
 					if(Input.anyKeyDown)
 					{
+						operation.allowSceneActivation = true;
+						
+					}else if(timeLeft < 0){
 						operation.allowSceneActivation = true;
 					}
 				}
