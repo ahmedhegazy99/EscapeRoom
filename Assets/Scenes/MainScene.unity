@@ -6173,7 +6173,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467671753}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: -0.84}
+  m_LocalPosition: {x: 0, y: 0, z: -3.18}
   m_LocalScale: {x: 0.9333334, y: 6.6666656, z: 0.14000003}
   m_Children: []
   m_Father: {fileID: 895253134}
@@ -6208,6 +6208,8 @@ MonoBehaviour:
 
     What is the scalar
     quantity?
+
+    Continue to the west of the entrance door
 
 '
   m_isRightToLeft: 0
@@ -6272,7 +6274,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 5.3856297, y: 2.224162, z: 7.1339774, w: 1.4959762}
+  m_margin: {x: 2.7849255, y: 2.224162, z: 7.1339774, w: 1.5180585}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -12148,6 +12150,8 @@ MonoBehaviour:
     The gas usually filled
     in the electric bulb is?
 
+    East is the direction!
+
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12211,7 +12215,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 5.3856297, y: 2.224162, z: 5.9790945, w: 1.4959762}
+  m_margin: {x: 3.904522, y: 2.224162, z: 5.9790945, w: 1.5011288}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -15934,7 +15938,9 @@ MonoBehaviour:
   m_text: 'Open the lock with the answer of the question:
 
     Sound travels at the
-    fastest speed in?'
+    fastest speed in?
+
+    Go to the east!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21212,6 +21218,8 @@ MonoBehaviour:
     The element common
     to all acids is?
 
+    Where is the missing clue?
+
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21618,10 +21626,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Open the lock with the answer of the question:
+  m_text: 'Open the lock:
 
-    What is the hardest
-    natural substance on Earth?
+    First letter of each clue!
 
 '
   m_isRightToLeft: 0
@@ -23249,6 +23256,8 @@ MonoBehaviour:
     Light year is a unit
     of?
 
+    Head to the west!
+
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24436,6 +24445,8 @@ MonoBehaviour:
 
     What is the hardest
     natural substance on Earth?
+
+    There''s a door, Where is it?
 
 '
   m_isRightToLeft: 0
