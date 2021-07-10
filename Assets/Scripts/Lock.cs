@@ -14,13 +14,23 @@ using UnityEngine.SceneManagement;
 public class Lock : MonoBehaviour
 {
     private bool onTrigger, doorOpen, keyPadScreen;
-    [SerializeField] private bool boardVisible = false;
+    [SerializeField] private bool boardVisible = false, door = false;
     [SerializeField] private Animator leftDoor = null, rightDoor = null;
     //btnObject is the object used generatw buttons of keyPad
     [SerializeField] private GameObject btnObject, board, keyPad = null;
     [SerializeField] private int width = 3, height = 4;
     [SerializeField] private string currentPassword = "egypt";
     [SerializeField] private char[] buttonsChar = {'g', 'k', 'p', 'o', 'e', 's', 'y', 'a', 'n', 'm', 't', 's'};
+    /*
+    [Tooltip("The UI Panel parenting all sub menus")]
+    public GameObject mainCanvas;
+
+    [Header("LOADING SCREEN")]
+		public GameObject loadingMenu;
+		public Slider loadBar;
+		public TMP_Text finishedLoadingText;
+		public float timeLeft = 10.0f;
+    */
     private float sy, sz, pz, px, py, ksy;
     private TextMeshPro mText, input;
     private GameObject mButton;
@@ -68,6 +78,10 @@ public class Lock : MonoBehaviour
             Debug.Log("Door Opend");
 
             if(board != null)board.SetActive(true);
+
+            if(door){
+                StartCoroutine(LoadAsynchronously(sceneName));
+            }
         }
 
     }
@@ -131,10 +145,32 @@ public class Lock : MonoBehaviour
     }
 
     IEnumerator LoadAsynchronously(string sceneName) // scene name is just the name of the current scene being loaded
-		{ 
+	{ 
 			AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 			operation.allowSceneActivation = true;
+            /*operation.allowSceneActivation = false;
+            mainCanvas.SetActive(false);
+            loadingMenu.SetActive(true);
+
+			while (!operation.isDone)
+			{
+				float progress = Mathf.Clamp01(operation.progress / .9f);
+				loadBar.value = progress;
+				timeLeft -= Time.deltaTime;
+				if(operation.progress >= 0.9f)
+				{
+					finishedLoadingText.gameObject.SetActive(true);
+
+					if(Input.anyKeyDown)
+					{
+						operation.allowSceneActivation = true;
+						
+					}else if(timeLeft < 0){
+						operation.allowSceneActivation = true;
+					}
+				}*/
 				
-			yield return null;
-		}
+				yield return null;
+			/*}*/
+    }
 }
