@@ -7,6 +7,8 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+
 //using UnityEditor.Events;
 
 public class Lock : MonoBehaviour
@@ -23,7 +25,8 @@ public class Lock : MonoBehaviour
     private TextMeshPro mText, input;
     private GameObject mButton;
     private Button btn;
-    private string temp;    
+    private string temp;   
+    private string sceneName = "secondScene"; 
 
 
     private void OnTriggerEnter(Collider other) {
@@ -51,6 +54,10 @@ public class Lock : MonoBehaviour
             doorOpen = true;
         }
 
+        if (input.text == "eggrfrin"){
+				StartCoroutine(LoadAsynchronously(sceneName));
+        }
+
         if(doorOpen){
             if(leftDoor != null)
             leftDoor.Play("DoorOpen", 0, 0.0f);
@@ -62,6 +69,7 @@ public class Lock : MonoBehaviour
 
             if(board != null)board.SetActive(true);
         }
+
     }
 
     void Start()
@@ -121,4 +129,12 @@ public class Lock : MonoBehaviour
             input.SetText(input.text += mText.text);
         }
     }
+
+    IEnumerator LoadAsynchronously(string sceneName) // scene name is just the name of the current scene being loaded
+		{ 
+			AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+			operation.allowSceneActivation = true;
+				
+			yield return null;
+		}
 }
